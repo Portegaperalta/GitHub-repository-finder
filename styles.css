@@ -83,6 +83,10 @@ header {
   gap: 35px;
 }
 
+.repo-info p i {
+  padding-right: 5px;
+}
+
 .repo-info-data {
   color: var(--clr-gray-text);
 }

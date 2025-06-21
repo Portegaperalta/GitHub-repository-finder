@@ -19,7 +19,6 @@ const getRandomRepoByLang = async (lang) => {
     const res = await axios.get(`https://api.github.com/search/repositories?q=${lang}`, config)
     const filteredRepos = res.data.items.filter(repo => repo.language === lang)
     const randomRepo = filteredRepos[Math.floor(Math.random() * 16)]
-    console.log(randomRepo)
 
     //creating elements to add to dom
 
@@ -64,10 +63,14 @@ const getRandomRepoByLang = async (lang) => {
 languageMenu.addEventListener('click', (e) => {
   const selectedLang = e.target.value
   if (languages.includes(selectedLang)) {
+
     contentDisplayBoxTitle.classList.add('hidden')
     contentDisplayBox.innerHTML = ''
     contentDisplayBox.style.backgroundColor = 'white'
     contentDisplayBox.style.border = "2px solid black"
+
+    refreshBtn.classList.remove('hidden')
+
     getRandomRepoByLang(e.target.value)
   }
 })
