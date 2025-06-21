@@ -55,6 +55,12 @@ const getRandomRepoByLang = async (lang) => {
 
 languageMenu.addEventListener('click', (e) => {
   contentDisplayBoxTitle.classList.add('hidden')
+  contentDisplayBox.innerHTML = ''
+  if (e.target.value == "Phyton" || "Java" || "Ruby" || "JavaScript" || "Go" || "C" || "C++") {
+    getRandomRepoByLang(e.target.value)
+  } else {
+    console.log("not valid language")
+  }
 })
 
 
