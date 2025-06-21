@@ -8,13 +8,13 @@ const contentDisplayBoxTitle = document.querySelector('#contentDisplayBox h2')
 const refreshBtn = document.querySelector('#refreshBtn')
 const retryBtn = document.querySelector('#retryBtn')
 
+const languages = ["JavaScript", "Python", "C", "C++", "Ruby", "Java", "Go"]
+
 // Search repositories api
 
 const getRandomRepoByLang = async (lang) => {
+
   try {
-
-    //fetch random repo from github
-
     const config = { headers: { Accept: 'application/vnd.github+json' } }
     const res = await axios.get(`https://api.github.com/search/repositories?q=${lang}`, config)
     const filteredRepos = res.data.items.filter(repo => repo.language === lang)
@@ -25,6 +25,7 @@ const getRandomRepoByLang = async (lang) => {
 
     const newRepoTitle = document.createElement('h3')
     const newRepoDescription = document.createElement('p')
+    const repoInfoDiv = document.createElement('div')
     const newRepoLang = document.createElement('p')
     const newRepoStars = document.createElement('p')
     const newRepoForks = document.createElement('p')
@@ -43,10 +44,12 @@ const getRandomRepoByLang = async (lang) => {
     //appending elements to dom 
     contentDisplayBox.append(newRepoTitle)
     contentDisplayBox.append(newRepoDescription)
-    contentDisplayBox.append(newRepoLang)
-    contentDisplayBox.append(newRepoStars)
-    contentDisplayBox.append(newRepoForks)
-    contentDisplayBox.append(newRepoWatchers)
+    contentDisplayBox.append(repoInfoDiv)
+    repoInfoDiv.append(newRepoLang)
+    repoInfoDiv.append(newRepoStars)
+    repoInfoDiv.append(newRepoForks)
+    repoInfoDiv.append(newRepoWatchers)
+
   }
   catch (error) {
     console.log(`Error: ${error}`)
@@ -54,12 +57,11 @@ const getRandomRepoByLang = async (lang) => {
 }
 
 languageMenu.addEventListener('click', (e) => {
-  contentDisplayBoxTitle.classList.add('hidden')
-  contentDisplayBox.innerHTML = ''
-  if (e.target.value == "Phyton" || "Java" || "Ruby" || "JavaScript" || "Go" || "C" || "C++") {
+  const selectedLang = e.target.value
+  if (languages.includes(selectedLang)) {
+    contentDisplayBoxTitle.classList.add('hidden')
+    contentDisplayBox.innerHTML = ''
     getRandomRepoByLang(e.target.value)
-  } else {
-    console.log("not valid language")
   }
 })
 
