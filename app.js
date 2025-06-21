@@ -54,9 +54,14 @@ const getRandomRepoByLang = async (lang) => {
     newRepoStars.classList.add('repo-info-data')
     newRepoForks.classList.add('repo-info-data')
     newRepoWatchers.classList.add('repo-info-data')
+
   }
   catch (error) {
     console.log(`Error: ${error}`)
+    retryBtn.classList.remove('hidden')
+    refreshBtn.classList.add('hidden')
+    contentDisplayBox.classList.add('content-error')
+    contentDisplayBox.innerText = 'Error fetching repositories'
   }
 }
 
@@ -74,9 +79,17 @@ languageMenu.addEventListener('click', (e) => {
   }
 })
 
-//refresh button event listener
+//refresh and retry button event listener
 
 refreshBtn.addEventListener('click', () => {
+  const selectedLang = languageMenu.value
+  if (languages.includes(selectedLang)) {
+    contentDisplayBox.innerHTML = ''
+    getRandomRepoByLang(selectedLang)
+  }
+})
+
+retryBtn.addEventListener('click', () => {
   const selectedLang = languageMenu.value
   if (languages.includes(selectedLang)) {
     contentDisplayBox.innerHTML = ''
