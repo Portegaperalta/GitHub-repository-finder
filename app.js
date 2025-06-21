@@ -19,6 +19,11 @@ const getRandomRepoByLang = async (lang) => {
     const filteredRepos = res.data.items.filter(repo => repo.language === lang)
     const randomRepo = filteredRepos[Math.floor(Math.random() * 16)]
 
+    contentDisplayBox.classList.remove('content-error')
+    contentDisplayBox.style.backgroundColor = 'white'
+    retryBtn.classList.add('hidden')
+    refreshBtn.classList.remove('hidden')
+
     //creating elements to add to dom
 
     const newRepoTitle = document.createElement('a')
