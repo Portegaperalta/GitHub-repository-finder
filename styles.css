@@ -1,0 +1,103 @@
+:root {
+  --clr-white: #FFFFFF;
+  --clr-black: #000000;
+  --clr-gray: #E9ECEF;
+  --crl-red: #E03131;
+  --clr-red-bg: #FFC9C9;
+  --clr-yellow: #F1E15A;
+}
+
+body {
+  font-family: "Geist", sans-serif;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  font-size: 2.5rem;
+}
+
+#toggleDarkModeBtn {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.main-content {
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#languageSelect {
+  padding: 8px 120px;
+  cursor: pointer;
+  font-family: "Geist", sans-serif;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--clr-black);
+  background-color: transparent;
+}
+
+
+.content-display {
+  background-color: var(--clr-gray);
+  padding: 70px 60px;
+  margin-top: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-display h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#refreshBtn {
+  font-family: "Geist", sans-serif;
+  font-size: 1rem;
+  padding: 15px 170px;
+  cursor: pointer;
+  color: var(--clr-white);
+  background-color: var(--clr-black);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#retryBtn {
+  font-family: "Geist", sans-serif;
+  font-size: 1rem;
+  padding: 15px 177px;
+  cursor: pointer;
+  color: var(--clr-white);
+  background-color: var(--crl-red);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
