@@ -15,7 +15,6 @@ const languages = ["JavaScript", "Python", "C", "C++", "Ruby", "Java", "Go"]
 const getRandomRepoByLang = async (lang) => {
 
   try {
-
     const config = { headers: { Accept: 'application/vnd.github+json' } }
     const res = await axios.get(`https://api.github.com/search/repositories?q=${lang}`, config)
     const filteredRepos = res.data.items.filter(repo => repo.language === lang)
@@ -25,7 +24,6 @@ const getRandomRepoByLang = async (lang) => {
 
     const newRepoTitle = document.createElement('a')
     const newRepoDescription = document.createElement('p')
-
     const repoInfoDiv = document.createElement('div')
     const newRepoStars = document.createElement('p')
     const newRepoForks = document.createElement('p')
@@ -40,7 +38,6 @@ const getRandomRepoByLang = async (lang) => {
     newRepoStars.innerHTML = `<p><i class="fa-solid fa-star repoStar"></i>${randomRepo.stargazers_count}</p>`
     newRepoForks.innerHTML = `<p><i class="fa-solid fa-code-fork"></i>${randomRepo.forks}</p>`
     newRepoWatchers.innerHTML = `<p><i class="fa-solid fa-eye"></i>${randomRepo.watchers_count}</p>`
-
 
     //appending elements to dom 
     contentDisplayBox.append(newRepoTitle)

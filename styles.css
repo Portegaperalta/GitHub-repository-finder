@@ -65,6 +65,10 @@ header {
   flex-direction: column;
 }
 
+.content-error {
+  background-color: var(--clr-red-bg);
+}
+
 .content-display h2 {
   font-size: 1.3rem;
   font-weight: 500;
