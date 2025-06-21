@@ -27,39 +27,34 @@ const getRandomRepoByLang = async (lang) => {
     const newRepoDescription = document.createElement('p')
 
     const repoInfoDiv = document.createElement('div')
-    const newRepoLang = document.createElement('p')
     const newRepoStars = document.createElement('p')
     const newRepoForks = document.createElement('p')
     const newRepoWatchers = document.createElement('p')
 
-    const secondInfoDiv = document.createElement('div')
-    const newStarsIcon = document.createElement('i')
-    const newForksIcon = document.createElement('i')
-    const newWatchersIcon = document.createElement('i')
-
     //asigning value to elements
 
     newRepoTitle.innerText = randomRepo.full_name
-    newRepoDescription.innerText = randomRepo.description.slice(0, 50)
-    newRepoLang.innerText = randomRepo.language
-    newRepoStars.innerText = randomRepo.stargazers_count
-    newRepoForks.innerText = randomRepo.forks
-    newRepoWatchers.innerText = randomRepo.watchers_count
+    newRepoDescription.innerText = randomRepo.description.slice(0, 100)
+    newRepoStars.innerHTML = `<p><i class="fa-solid fa-star repoStar"></i>${randomRepo.stargazers_count}</p>`
+    newRepoForks.innerHTML = `<p><i class="fa-solid fa-code-fork"></i>${randomRepo.forks}</p>`
+    newRepoWatchers.innerHTML = `<p><i class="fa-solid fa-eye"></i>${randomRepo.watchers_count}</p>`
 
 
     //appending elements to dom 
     contentDisplayBox.append(newRepoTitle)
     contentDisplayBox.append(newRepoDescription)
     contentDisplayBox.append(repoInfoDiv)
-    repoInfoDiv.append(newRepoLang)
     repoInfoDiv.append(newRepoStars)
     repoInfoDiv.append(newRepoForks)
     repoInfoDiv.append(newRepoWatchers)
 
     //adding classes to elements
 
+    newRepoDescription.classList.add('repo-description')
     repoInfoDiv.classList.add('repo-info')
-
+    newRepoStars.classList.add('repo-info-data')
+    newRepoForks.classList.add('repo-info-data')
+    newRepoWatchers.classList.add('repo-info-data')
   }
   catch (error) {
     console.log(`Error: ${error}`)
@@ -71,9 +66,8 @@ languageMenu.addEventListener('click', (e) => {
   if (languages.includes(selectedLang)) {
     contentDisplayBoxTitle.classList.add('hidden')
     contentDisplayBox.innerHTML = ''
+    contentDisplayBox.style.backgroundColor = 'white'
+    contentDisplayBox.style.border = "2px solid black"
     getRandomRepoByLang(e.target.value)
   }
 })
-
-
-// res.data.items[Math.floor(Math.random() * 16)]

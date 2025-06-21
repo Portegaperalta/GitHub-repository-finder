@@ -2,6 +2,7 @@
   --clr-white: #FFFFFF;
   --clr-black: #000000;
   --clr-gray: #E9ECEF;
+  --clr-gray-text: #6C757D;
   --crl-red: #E03131;
   --clr-red-bg: #FFC9C9;
   --clr-yellow: #F1E15A;
@@ -40,6 +41,11 @@ header {
   align-items: center;
 }
 
+.repository-finder {
+  width: 100%;
+  max-width: 400px;
+}
+
 #languageSelect {
   padding: 8px 120px;
   cursor: pointer;
@@ -52,7 +58,7 @@ header {
 
 .content-display {
   background-color: var(--clr-gray);
-  padding: 60px 60px;
+  padding: 30px 40px;
   margin-top: 10px;
   border-radius: 15px;
   display: flex;
@@ -64,10 +70,21 @@ header {
   font-weight: 500;
 }
 
+.repo-description {
+  color: var(--clr-gray-text);
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
 .repo-info {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 35px;
+}
+
+.repo-info-data {
+  color: var(--clr-gray-text);
 }
 
 .buttons {
