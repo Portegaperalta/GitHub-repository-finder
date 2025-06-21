@@ -10,7 +10,7 @@ const retryBtn = document.querySelector('#retryBtn')
 
 const languages = ["JavaScript", "Python", "C", "C++", "Ruby", "Java", "Go"]
 
-// Search repositories api
+// Get random repository function
 
 const getRandomRepoByLang = async (lang) => {
 
@@ -25,11 +25,17 @@ const getRandomRepoByLang = async (lang) => {
 
     const newRepoTitle = document.createElement('h3')
     const newRepoDescription = document.createElement('p')
+
     const repoInfoDiv = document.createElement('div')
     const newRepoLang = document.createElement('p')
     const newRepoStars = document.createElement('p')
     const newRepoForks = document.createElement('p')
     const newRepoWatchers = document.createElement('p')
+
+    const secondInfoDiv = document.createElement('div')
+    const newStarsIcon = document.createElement('i')
+    const newForksIcon = document.createElement('i')
+    const newWatchersIcon = document.createElement('i')
 
     //asigning value to elements
 
@@ -49,6 +55,10 @@ const getRandomRepoByLang = async (lang) => {
     repoInfoDiv.append(newRepoStars)
     repoInfoDiv.append(newRepoForks)
     repoInfoDiv.append(newRepoWatchers)
+
+    //adding classes to elements
+
+    repoInfoDiv.classList.add('repo-info')
 
   }
   catch (error) {

@@ -52,17 +52,22 @@ header {
 
 .content-display {
   background-color: var(--clr-gray);
-  padding: 70px 60px;
+  padding: 60px 60px;
   margin-top: 10px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .content-display h2 {
   font-size: 1.3rem;
   font-weight: 500;
+}
+
+.repo-info {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
 
 .buttons {
