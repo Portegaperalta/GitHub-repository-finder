@@ -70,6 +70,17 @@ header {
   font-weight: 500;
 }
 
+.repo-title {
+  color: var(--clr-black);
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.repo-title:hover {
+  text-decoration: underline;
+}
+
 .repo-description {
   color: var(--clr-gray-text);
   width: 100%;

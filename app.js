@@ -22,7 +22,7 @@ const getRandomRepoByLang = async (lang) => {
 
     //creating elements to add to dom
 
-    const newRepoTitle = document.createElement('h3')
+    const newRepoTitle = document.createElement('a')
     const newRepoDescription = document.createElement('p')
 
     const repoInfoDiv = document.createElement('div')
@@ -33,6 +33,8 @@ const getRandomRepoByLang = async (lang) => {
     //asigning value to elements
 
     newRepoTitle.innerText = randomRepo.full_name
+    newRepoTitle.href = randomRepo.html_url
+    newRepoTitle.target = '_blank'
     newRepoDescription.innerText = randomRepo.description.slice(0, 100)
     newRepoStars.innerHTML = `<p><i class="fa-solid fa-star repoStar"></i>${randomRepo.stargazers_count}</p>`
     newRepoForks.innerHTML = `<p><i class="fa-solid fa-code-fork"></i>${randomRepo.forks}</p>`
@@ -48,7 +50,7 @@ const getRandomRepoByLang = async (lang) => {
     repoInfoDiv.append(newRepoWatchers)
 
     //adding classes to elements
-
+    newRepoTitle.classList.add('repo-title')
     newRepoDescription.classList.add('repo-description')
     repoInfoDiv.classList.add('repo-info')
     newRepoStars.classList.add('repo-info-data')
