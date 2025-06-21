@@ -1,5 +1,4 @@
 const body = document.querySelector('body')
-const darkModeBtn = document.querySelector('#toggleDarkModeBtn')
 
 const languageMenu = document.querySelector('#languageSelect')
 const contentDisplayBox = document.querySelector('#contentDisplayBox')
