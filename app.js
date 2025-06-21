@@ -15,6 +15,7 @@ const languages = ["JavaScript", "Python", "C", "C++", "Ruby", "Java", "Go"]
 const getRandomRepoByLang = async (lang) => {
 
   try {
+
     const config = { headers: { Accept: 'application/vnd.github+json' } }
     const res = await axios.get(`https://api.github.com/search/repositories?q=${lang}`, config)
     const filteredRepos = res.data.items.filter(repo => repo.language === lang)
@@ -62,6 +63,8 @@ const getRandomRepoByLang = async (lang) => {
   }
 }
 
+// Select menu event listener
+
 languageMenu.addEventListener('click', (e) => {
   const selectedLang = e.target.value
   if (languages.includes(selectedLang)) {
@@ -74,5 +77,15 @@ languageMenu.addEventListener('click', (e) => {
     refreshBtn.classList.remove('hidden')
 
     getRandomRepoByLang(e.target.value)
+  }
+})
+
+//refresh button event listener
+
+refreshBtn.addEventListener('click', () => {
+  const selectedLang = languageMenu.value
+  if (languages.includes(selectedLang)) {
+    contentDisplayBox.innerHTML = ''
+    getRandomRepoByLang(selectedLang)
   }
 })
